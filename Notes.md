@@ -1,9 +1,9 @@
-[[TOC]]
+[[toc]]
 
 ## 1-1 Introduction to NLP
 
 ### The applications of NLP:
-![Z11gaV.png](https://s2.ax1x.com/2019/06/30/Z11gaV.png)
+![Z11gaV.png]  https://s2.ax1x.com/2019/06/30/Z11gaV.png)
 
 ### What makes NLP harder:
 [![Z138WF.png](https://s2.ax1x.com/2019/06/30/Z138WF.png)](https://imgchr.com/i/Z138WF)
@@ -216,3 +216,102 @@ but got: theta bled own there
 However,it works astonishingly well in Chinese, modern probabilistic segmentation algorithms even better.
 
 ## 2-4 Word Normalization and Stemming
+
+### Normalization
+
+- Need to normalize terms
+  - IR: indexed text & query terms must have same form
+    - we wanna match **U.S.A** and **USA**
+- We implicitly define equivalence classes of terms
+  - e.g., deleting periods in a term
+- Alternative: asymmetric expansion:
+  - Enter: window &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search: window, windows
+  - Enter: windows&nbsp;&nbsp;&nbsp; Search: Windows, windows, window
+  - Enter: Windows&nbsp;&nbsp;&nbsp;Search: Windows 
+- Potentially more powerful, but less efficient
+
+### Case folding
+
+- Applications like IR: reduce all letters to lower case
+  - Since users tend to use lower case
+  - Possible exception: upper case in mid-sentence?
+    - e.g., **General Motors** (brand name)
+    - **Fed** vs. **fed**
+    - **SAIL** vs. **sail**
+- For sentiment analysis, MT, IR
+  - Case is helpful(**US** vs. **us** important)
+
+### Lemmatization
+
+- Reduce inflections or variant forms to base form
+  - am, are, is -> be
+  - car, cars, car's, cars' -> car
+- the boy's cars are different colors -> the boy car be different color
+- Lemmatization: have to find correct dictionary headword form
+- MT
+  - Spanish **quiero**('I want'), **quieres**('you want') same lemma as **querer**('want')
+
+### Morphology
+
+- **Morphemes**: The small meaningful units that make up words
+- **Stems**: The core meaning-bearing units
+- **Affixes**: Bits and pieces that adhere to stems
+  - Often with grammatical functions
+
+### Stemming
+
+- Reduce terms to their stems in information retrieval  
+- Stemming  is  crude  chopping  of  affixes  
+  - language  dependent  
+  - e.g.,  **automate(s)**, **automatic**, **automation** all reduced to **automat**.  
+
+### Porter’s algorithm: the most common English stemmer
+
+[![Z3AniR.md.png](https://s2.ax1x.com/2019/06/30/Z3AniR.md.png)](https://imgchr.com/i/Z3AniR)
+
+### Viewing morphology in a corpus: why only strip -ing if there is a vowel?
+
+[![Z3AlQK.md.png](https://s2.ax1x.com/2019/06/30/Z3AlQK.md.png)](https://imgchr.com/i/Z3AlQK)
+
+```bash
+tr -sc 'A-Za-z' '\n' < shakes.txt | grep 'ing$' | sort | uniq -c | sort –nr
+```
+
+[![Z3A1sO.png](https://s2.ax1x.com/2019/06/30/Z3A1sO.png)](https://imgchr.com/i/Z3A1sO)
+
+```bash
+tr -sc 'A-Za-z' '\n' < shakes.txt | grep '[aeiou].*ing$' | sort | uniq -c | sort –nr
+```
+
+### Dealing with complex morphology is sometimes necessary
+
+  Some languages requires complex morpheme segmentation 
+  
+  e.g. Turkish
+> Uygarlastiramadiklarimizdanmissinizcasina
+  
+  -> (behaving) as if you are among those whom we could not civilize
+
+**Uygar** 'civilized' + **las** 'become'  
+\+ **tir** 'cause' \+ **ama** 'not able'  
+\+ **dik** 'past' + **lar** 'plural'
+\+ **imiz** 'p1pl' + **dan** 'abl'  
+\+ **mis** 'past' + **siniz** '2pl' + **casina** 'as if'  
+
+## 2-5 Sentence Segmentation and Decision Trees
+
+### Sentence Segmentation
+
+- !,? are relatively unambiguous
+- Period "." is quite ambiguous
+  - Sentence boundary
+  - Abbr like Inc or Dr.
+  - Numbers like .02% or 4.3
+- Build a binary classifier
+  - Looks at a "."
+  - Decides is or not an EOS
+  - Classifiers: hand-written rules, regular expressions, or machine-learning
+
+### Determining if a word is EOS: a Decision Tree
+
+[![Z3VkE4.png](https://s2.ax1x.com/2019/06/30/Z3VkE4.png)](https://imgchr.com/i/Z3VkE4)
