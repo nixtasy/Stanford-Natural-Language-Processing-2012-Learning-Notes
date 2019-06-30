@@ -1,7 +1,7 @@
-autoauto- [Stanford Natural Language Processing 2012 Learning Notes](#stanford-natural-language-processing-2012-learning-notes)auto    - [1-1 Introduction to NLP](#1-1-introduction-to-nlp)auto        - [The applications of NLP:](#the-applications-of-nlp)auto        - [What makes NLP harder:](#what-makes-nlp-harder)auto    - [2-1 Regular Expressions](#2-1-regular-expressions)auto        - [Disjunctions:](#disjunctions)auto        - [Negation in disjunctions:](#negation-in-disjunctions)auto        - [More disjunctions:](#more-disjunctions)auto        - [? * + . :](#----)auto        - [Anchors ^ $ :](#anchors-^--)auto        - [Here is an example to use **Regular Expressions** to find all instances of the word *"the"* in a text:](#here-is-an-example-to-use-regular-expressions-to-find-all-instances-of-the-word-the-in-a-text)auto        - [Errors:](#errors)auto        - [Errors cont.](#errors-cont)auto        - [Summary:](#summary)auto    - [2-3 Word tokenization:](#2-3-word-tokenization)auto        - [Text Normalization](#text-normalization)auto        - [Lemma and Wordform:](#lemma-and-wordform)auto        - [Type and Token:](#type-and-token)auto        - [How many words?](#how-many-words)auto        - [Simple Tokenization in UNIX](#simple-tokenization-in-unix)auto            - [The first step:tokenizing](#the-first-steptokenizing)auto            - [The second step:sorting](#the-second-stepsorting)auto            - [More counting](#more-counting)auto        - [Issues in Tokenization](#issues-in-tokenization)auto        - [Tokenization: language issues](#tokenization-language-issues)auto        - [Word Tokenization in Chinese](#word-tokenization-in-chinese)auto            - [Word Segmentation](#word-segmentation)auto            - [Maximum Matching Word Segmentation Algorithm](#maximum-matching-word-segmentation-algorithm)auto            - [Max-match segmentation illustration in English (psuedo-Chinese)](#max-match-segmentation-illustration-in-english-psuedo-chinese)auto    - [2-4 Word Normalization and Stemming](#2-4-word-normalization-and-stemming)autoauto
-
-# Stanford Natural Language Processing 2012 Learning Notes
-
+---
+title: Stanford Natural Language Processing 2012 Learning Notes
+---
+[[TOC]]
 
 ## 1-1 Introduction to NLP
 
@@ -77,7 +77,7 @@ the|Misses capitalized examples
     - But regular expressions are used as features in the classifiers
     - Can be very useful in capturing generalizations
 
-## 2-3 Word tokenization:
+## 2-3 Word Tokenization
 
 ### Text Normalization
 
