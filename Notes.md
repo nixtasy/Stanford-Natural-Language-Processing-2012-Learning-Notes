@@ -85,8 +85,8 @@
 |Pattern|Matches|
 |---|---|
 |^[A-Z]|**P**alo Alto|
-|^[^A-Za-z]|**1** <u>"</u> Hello"|
-|\\.$|The end <u>.</u>|
+|^[^A-Za-z]|**1** **"** Hello"|
+|\\.$|The end **.**|
 |.$|The end **?** The end **!**|
 
 ### Here is an example to use **Regular Expressions** to find all instances of the word *"the"* in a text:
