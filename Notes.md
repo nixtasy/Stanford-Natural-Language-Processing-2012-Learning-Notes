@@ -1,6 +1,3 @@
----
-title: Stanford Natural Language Processing 2012 Learning Notes
----
 [[TOC]]
 
 ## 1-1 Introduction to NLP
