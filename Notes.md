@@ -11,20 +11,39 @@
 - Stilled really hard:
   - Question answering(QA), Paraphrase, Summarization, Dialog
 
-### What makes NLP harder:
-[![Z138WF.png](https://s2.ax1x.com/2019/06/30/Z138WF.png)](https://imgchr.com/i/Z138WF)
-[![Z13Wwt.md.png](https://s2.ax1x.com/2019/06/30/Z13Wwt.md.png)](https://imgchr.com/i/Z13Wwt)
+### Apart from ambiguity issue,what else makes NLP harder?
+
+- **Non-standard English**:such as Twitter feeds
+- **Neologisms**: *unfriend*, *Retweet*, *bromance*
+- **Segmentation issues**:
+- **World knowledge(commonsense knowledge)**:
+    > Mary and Sue are *sisters*.
+
+    > Mary and Sue are *mothers*.
+
+    *In artificial intelligence research, **commonsense knowledge** is the collection of facts and information that an ordinary person is expected to know.*
+
+- **Idioms**: *dark horse*, *get cold feet*, *lose face*, *throw in the towel*
+- **Tricky entity names**: *Let It Be* was recorded
+
 
 ## 2-1 Regular Expressions
 
 ### Disjunctions:
 - Letters inside square brackets [ ]
 
-[![Z1GFgg.md.png](https://s2.ax1x.com/2019/06/30/Z1GFgg.md.png)](https://imgchr.com/i/Z1GFgg)
+|Pattern|Matches|
+|---|---|
+|[wW]oodchuck|Woodchuck, woodchuck|
+|[1234567890]|Any digit|
 
 - Ranges [A-Z]
 
-[![Z1Gu5V.md.png](https://s2.ax1x.com/2019/06/30/Z1Gu5V.md.png)](https://imgchr.com/i/Z1Gu5V)
+|Pattern|Matches||
+|---|---|---|
+|[A-Z]|An upper case letter|**D**renched Blossoms|
+|[a-z]|A lower case letter|**m**y beans were impatient|
+|[0-9]|A single digit|Chapter **1**: Down the Rabbit Hole|
 
 ### Negation in disjunctions:
 
@@ -32,22 +51,43 @@
 
     - Carat means negation only when first in [ ]
 
-    [![Z1GZbn.md.png](https://s2.ax1x.com/2019/06/30/Z1GZbn.md.png)](https://imgchr.com/i/Z1GZbn)
+    |Pattern|Matches||
+    |---|---|---|
+    |[^A-Z]|Not an upper case letter|O**y**fn pripetchik|
+    |[^Ss]|Neither 'S' nor 's'|**I** have no exquisite reason"|
+    |[^e^]|Neither e nor ^|Look h**e**re|
+    |[a^b]|The pattern a carat b|Look up **a^b** now|
 
 ### More disjunctions:
 
 - Woodchucks is another name for groundhog
 - The pipe | for disjunction
 
-[![Z1GkvQ.md.png](https://s2.ax1x.com/2019/06/30/Z1GkvQ.md.png)](https://imgchr.com/i/Z1GkvQ)
+|Pattern|Matches|
+|---|---|
+|groundhog\|woodchuck||
+|yours\|mine|yours mine|
+|a\|b\|c|=**[abc]**|
+|[gG]roundhog\|[Ww]oodchuck||
 
 ### ? * + . :
 
-[![Z1GEuj.md.png](https://s2.ax1x.com/2019/06/30/Z1GEuj.md.png)](https://imgchr.com/i/Z1GEuj)
+|Pattern|Matches||
+|---|---|---|
+|colou?r|Optional previous char|**color** **colour**|
+|oo*h!|0 or more of previous char|**oh!** **ooh!** **oooh!** **ooooh!**|
+|o+h!|1 or more of previous char|**oh!** **ooh!** **oooh!** **ooooh!**|
+|baa+||**baa** **baaa** **baaaa** **baaaaa**|
+|beg.n||**begin** **began** **begun** **beg3n**|
 
 ### Anchors ^ $ :
 
-[![Z1GmEq.md.png](https://s2.ax1x.com/2019/06/30/Z1GmEq.md.png)](https://imgchr.com/i/Z1GmEq)
+|Pattern|Matches|
+|---|---|
+|^[A-Z]|**P**alo Alto|
+|^[^A-Za-z]|**1** <u>"</u> Hello"|
+|\\.$|The end <u>.</u>|
+|.$|The end **?** The end **!**|
 
 ### Here is an example to use **Regular Expressions** to find all instances of the word *"the"* in a text:
 
