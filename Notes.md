@@ -3,7 +3,13 @@
 ## 1-1 Introduction to NLP
 
 ### The applications of NLP:
-![Z11gaV.png]  https://s2.ax1x.com/2019/06/30/Z11gaV.png)
+
+- Mostly solved:
+  - Spam detection, POS tagging, NER(Named Entity Recognition)
+- Making good progress:
+  - Sentiment analysis, Coreference resolution(指代消解), Word sense disambiguation (WSD), Parsing, MT, Information Extraction(IE)
+- Stilled really hard:
+  - Question answering(QA), Paraphrase, Summarization, Dialog
 
 ### What makes NLP harder:
 [![Z138WF.png](https://s2.ax1x.com/2019/06/30/Z138WF.png)](https://imgchr.com/i/Z138WF)
@@ -315,3 +321,30 @@ tr -sc 'A-Za-z' '\n' < shakes.txt | grep '[aeiou].*ing$' | sort | uniq -c | sort
 ### Determining if a word is EOS: a Decision Tree
 
 [![Z3VkE4.png](https://s2.ax1x.com/2019/06/30/Z3VkE4.png)](https://imgchr.com/i/Z3VkE4)
+
+### More sophisticated decision tree features
+
+- Case of word with ".": Upper, Lower, Cap, Number
+- Case of word after ".": Upper, Lower, Cap, Number
+- Numeric features
+  - Length of word with "."
+  - Probability(word with "." occurs at end-of-s)
+  - Probability(word after "." occurs at beginning-of-s)
+
+### Implementing Decision Trees
+
+- A decision tree is just an if-then-else statement
+- The interesting research is choosing the features
+- Setting up the structure is often too hard to do by hand
+  - Hand-building only possible for very simple features, domains
+  - For numeric features, it's too hard to pick each threshold
+  - Instead, structure usually learned by machine learning from training corpus
+
+### Decision Trees and other classifiers
+
+- We can think of the questions in a decision tree
+- As features that could be exploited by an kind of classifier
+  - Logistic regression
+  - SVM
+  - Neural Networks
+  - etc.
