@@ -1,6 +1,6 @@
 # Stanford Natural Language Processing 2012 Learning Notes
 
-[TOC]
+[toc]
 
 ## 1-1 Introduction to NLP
 
