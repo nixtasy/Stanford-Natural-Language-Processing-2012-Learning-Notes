@@ -415,3 +415,48 @@ Here is an example:
 - if each operation has cost of 1, distance between these is 5
 - if substitutions cost 2 (Levenshtein), distance between them is 8
 
+### Uses of Edit Distance
+
+- Alignment in Computational Biology
+
+    Given two sequences, align each letter to a letter or a gap.
+
+    [![Z8v0pD.md.png](https://s2.ax1x.com/2019/07/01/Z8v0pD.md.png)](https://imgchr.com/i/Z8v0pD)
+
+- Evaluating Machine Translation and Speech Recognition
+
+    [![Z8vB1e.md.png](https://s2.ax1x.com/2019/07/01/Z8vB1e.md.png)](https://imgchr.com/i/Z8vB1e)
+
+- Named Entity Extraction and Entity Coreference
+
+  - **IBM Inc.** announced today
+  - **IBM** profits
+  - **Stanford President John Hennessy** announced yesterday
+  - for **Stanford University President John Hennessy**
+
+### How to find the Min Edit Distance?
+
+Search for a path (sequence of edits) from the start string to the final string.
+
+- **Initial state**: the word we’re transforming
+- **Operators**: insert, delete, substitute
+- **Goal state**: the word we’re trying to get to
+- **Path cost**: what we want to minimize: the number of edits
+
+[![Z8vD6H.md.png](https://s2.ax1x.com/2019/07/01/Z8vD6H.md.png)](https://imgchr.com/i/Z8vD6H)
+
+But the space of all edit sequences is huge!
+
+- We can’t afford to navigate naively
+- Lots of distinct paths wind up at the same state.
+- We don’t have to keep track of all of them
+- Just the shortest path to each of those revisited states.
+
+### Defining Min Edit Distance
+
+For two strings:
+
+- **X** of length **n**
+- **Y** of length **m**
+
+We define **D(i,j)** as the edit distance between the first **i** characters of **X**, i.e. **X[1..i]** and the first **j** characters of **Y**, i.e. **Y[1..j]**. The edit distance between **X** and **Y** is thus **D(n,m)**.
