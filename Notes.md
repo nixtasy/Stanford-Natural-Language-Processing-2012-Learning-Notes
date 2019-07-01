@@ -154,7 +154,8 @@ the|Misses capitalized examples
 
 - |V| is the size of the vocabulary
 
-- $|V|>O(N^\frac{1}{2})$, *Church and Gale(1990)*
+- ![](http://latex.codecogs.com/svg.latex?\\|V|>O(N^\frac{1}{2}))
+, *Church and Gale(1990)*
 
  ||Tokens = N|Types = \|V\||
  |---|---|---|
