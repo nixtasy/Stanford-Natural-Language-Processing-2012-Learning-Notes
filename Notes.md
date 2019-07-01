@@ -115,9 +115,9 @@
 
     |Pattern|Matches||
     |---|---|---|
-    |[^A-Z]|Not an upper case letter|O**y**fn pripetchik|
-    |[^Ss]|Neither 'S' nor 's'|**I** have no exquisite reason"|
-    |[^e^]|Neither e nor ^|Look h**e**re|
+    |[^A-Z]|Not an upper case letter|O**yfn** **pripetchik**|
+    |[^Ss]|Neither 'S' nor 's'|**I have no exqui**s**ite rea**s**on"**|
+    |[^e^]|Neither e nor ^|**Look h**e**r**e|
     |[a^b]|The pattern a carat b|Look up **a^b** now|
 
 ### More disjunctions:
