@@ -1,4 +1,59 @@
-[[toc]]
+<!-- TOC -->
+
+- [1-1 Introduction to NLP](#1-1-Introduction-to-NLP)
+  - [The applications of NLP:](#The-applications-of-NLP)
+  - [Apart from ambiguity issue,what else makes NLP harder?](#Apart-from-ambiguity-issuewhat-else-makes-NLP-harder)
+- [2-1 Regular Expressions](#2-1-Regular-Expressions)
+  - [Disjunctions:](#Disjunctions)
+  - [Negation in disjunctions:](#Negation-in-disjunctions)
+  - [More disjunctions:](#More-disjunctions)
+  - [? * + . :](#)
+  - [Anchors ^ $ :](#Anchors)
+  - [Here is an example to use **Regular Expressions** to find all instances of the word *"the"* in a text:](#Here-is-an-example-to-use-Regular-Expressions-to-find-all-instances-of-the-word-%22the%22-in-a-text)
+  - [Errors:](#Errors)
+  - [Errors cont.](#Errors-cont)
+  - [Summary:](#Summary)
+- [2-3 Word Tokenization](#2-3-Word-Tokenization)
+  - [Text Normalization](#Text-Normalization)
+  - [Lemma and Wordform:](#Lemma-and-Wordform)
+  - [Type and Token:](#Type-and-Token)
+  - [How many words?](#How-many-words)
+  - [Simple Tokenization in UNIX](#Simple-Tokenization-in-UNIX)
+    - [The first step:tokenizing](#The-first-steptokenizing)
+    - [The second step:sorting](#The-second-stepsorting)
+    - [More counting](#More-counting)
+  - [Issues in Tokenization](#Issues-in-Tokenization)
+  - [Tokenization: language issues](#Tokenization-language-issues)
+  - [Word Tokenization in Chinese](#Word-Tokenization-in-Chinese)
+    - [Word Segmentation](#Word-Segmentation)
+    - [Maximum Matching Word Segmentation Algorithm](#Maximum-Matching-Word-Segmentation-Algorithm)
+    - [Max-match segmentation illustration in English (psuedo-Chinese)](#Max-match-segmentation-illustration-in-English-psuedo-Chinese)
+- [2-4 Word Normalization and Stemming](#2-4-Word-Normalization-and-Stemming)
+  - [Normalization](#Normalization)
+  - [Case folding](#Case-folding)
+  - [Lemmatization](#Lemmatization)
+  - [Morphology](#Morphology)
+  - [Stemming](#Stemming)
+  - [Porter’s algorithm: the most common English stemmer](#Porters-algorithm-the-most-common-English-stemmer)
+  - [Viewing morphology in a corpus: why only strip -ing if there is a vowel?](#Viewing-morphology-in-a-corpus-why-only-strip--ing-if-there-is-a-vowel)
+  - [Dealing with complex morphology is sometimes necessary](#Dealing-with-complex-morphology-is-sometimes-necessary)
+- [2-5 Sentence Segmentation and Decision Trees](#2-5-Sentence-Segmentation-and-Decision-Trees)
+  - [Sentence Segmentation](#Sentence-Segmentation)
+  - [Determining if a word is EOS: a Decision Tree](#Determining-if-a-word-is-EOS-a-Decision-Tree)
+  - [More sophisticated decision tree features](#More-sophisticated-decision-tree-features)
+  - [Implementing Decision Trees](#Implementing-Decision-Trees)
+  - [Decision Trees and other classifiers](#Decision-Trees-and-other-classifiers)
+- [3-1 Definition of Minimum Edit Distance](#3-1-Definition-of-Minimum-Edit-Distance)
+  - [The need of compare how similar are two strings](#The-need-of-compare-how-similar-are-two-strings)
+  - [Edit Distance](#Edit-Distance)
+  - [Uses of Edit Distance](#Uses-of-Edit-Distance)
+  - [How to find the Min Edit Distance?](#How-to-find-the-Min-Edit-Distance)
+  - [Defining Min Edit Distance](#Defining-Min-Edit-Distance)
+- [3-2 Computing Minimum Edit Distance](#3-2-Computing-Minimum-Edit-Distance)
+  - [Dynamic Programming for Minimum Edit Distance](#Dynamic-Programming-for-Minimum-Edit-Distance)
+  - [The Algorithm](#The-Algorithm)
+
+<!-- /TOC -->
 
 ## 1-1 Introduction to NLP
 
@@ -6,7 +61,7 @@
 
 - Mostly solved:
   - Spam detection, POS tagging, NER(Named Entity Recognition)
-- Making good progress:
+- Making good progress: 
   - Sentiment analysis, Coreference resolution(指代消解), Word sense disambiguation (WSD), Parsing, MT, Information Extraction(IE)
 - Stilled really hard:
   - Question answering(QA), Paraphrase, Summarization, Dialog
