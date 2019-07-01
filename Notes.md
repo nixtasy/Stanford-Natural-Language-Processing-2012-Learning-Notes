@@ -460,3 +460,22 @@ For two strings:
 - **Y** of length **m**
 
 We define **D(i,j)** as the edit distance between the first **i** characters of **X**, i.e. **X[1..i]** and the first **j** characters of **Y**, i.e. **Y[1..j]**. The edit distance between **X** and **Y** is thus **D(n,m)**.
+
+## 3-2 Computing Minimum Edit Distance
+
+### Dynamic Programming for Minimum Edit Distance
+
+- **Dynamic programming**: A tabular computation of **D(n,m)**
+- Solving problems by combining solutions to sub-problems.
+- **Bottom-up**
+  - We compute **D(i,j)** for small **i**,**j**
+  - And compute larger **D(i,j)** based on previously computed smaller values
+  - i.e., compute **D(i,j)** for all **i(0<i<n)** and **j(0<j<m)**
+
+### The Algorithm
+
+[![ZGPiEd.png](https://s2.ax1x.com/2019/07/01/ZGPiEd.png)](https://imgchr.com/i/ZGPiEd)
+
+[![ZGCt7d.md.png](https://s2.ax1x.com/2019/07/01/ZGCt7d.md.png)](https://imgchr.com/i/ZGCt7d)
+
+[![ZGCY0H.md.png](https://s2.ax1x.com/2019/07/01/ZGCY0H.md.png)](https://imgchr.com/i/ZGCY0H)
