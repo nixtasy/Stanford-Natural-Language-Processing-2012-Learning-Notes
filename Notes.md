@@ -207,7 +207,7 @@ the|Misses capitalized examples
 - Hewlett-Packard → Hewlett Packard ?
 - state-of-the-art → state of the art ?
 - Lowercase → lower-case lowercase lower case ?
-- San Francisco → one(token(or(two?
+- San Francisco → one token or two?
 - m.p.h., PhD. → ??
 
 ### Tokenization: language issues
@@ -234,30 +234,32 @@ the|Misses capitalized examples
 
 #### Word Segmentation
 
-- Chinese words are composed of characters 
-    - Characters are generally 1 syllable and 1 morpheme. 
-    - Average word is 2.4 characters long. 
+- Chinese words are composed of characters
+  - Characters are generally 1 syllable and 1 morpheme.
+  - Average word is 2.4 characters long.
 - Standard baseline segmentation algorithm:  
-    - Maximum Matching (also called *Greedy Algorithm*)  
+  - Maximum Matching (also called *Greedy Algorithm*)  
 
 #### Maximum Matching Word Segmentation Algorithm
 
 Given a wordlist of Chinese, and a string:
-1. Start a pointer at the beginning of the string 
-2. Find the longest word in dictionary that matches the string starting at pointer 
-3. Move the pointer over the word in string 
+
+1. Start a pointer at the beginning of the string
+2. Find the longest word in dictionary that matches the string starting at pointer
+3. Move the pointer over the word in string
 4. Go to 2
 
 #### Max-match segmentation illustration in English (psuedo-Chinese)
+
 > Thecatinthehat
 
-the cat in the hat 
+the cat in the hat
 
 > Thetabledownthere
 
-expect: the table down there 
+expect: the table down there
 
-but got: theta bled own there 
+but got: theta bled own there
 
 However,it works astonishingly well in Chinese, modern probabilistic segmentation algorithms even better.
 
@@ -388,3 +390,28 @@ tr -sc 'A-Za-z' '\n' < shakes.txt | grep '[aeiou].*ing$' | sort | uniq -c | sort
   - SVM
   - Neural Networks
   - etc.
+
+## 3-1 Definition of Minimum Edit Distance
+
+### The need of compare how similar are two strings
+
+- Spell correction
+- Computational Biology
+  - Align two sequences of nucleotides
+- Also for Machine Translation, Information Extraction, Speech Recognition
+
+### Edit Distance
+
+The minimum edit distance between two strings is defined by the minimum number of editing operations that are needed when transform one into the other:
+
+- Insertion
+- Deletion
+- Substitution
+  
+Here is an example:
+
+[![Z8bWfH.md.png](https://s2.ax1x.com/2019/07/01/Z8bWfH.md.png)](https://imgchr.com/i/Z8bWfH)
+
+- if each operation has cost of 1, distance between these is 5
+- if substitutions cost 2 (Levenshtein), distance between them is 8
+
